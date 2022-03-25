@@ -1,5 +1,4 @@
 // Type
-debugger;
 let greeting = 'Hello World';
 let num = 9;
 let a = 1;
