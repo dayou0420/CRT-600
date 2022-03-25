@@ -7,6 +7,8 @@ var Incect = class {
     }
 }
 
+debugger;
+
 var ant = new Incect('Ants');
 var args = '🐜';
 var action = ant.increment(args);
