@@ -8,10 +8,10 @@ debugger;
  * ※if文は削除してはいけません。
  */
  function fn() {
-  let a = 'fn called';
-  // if(true) {
-  //     let a = 'fn called';
-  // }
+  let a;
+  if(true) {
+    a = 'fn called';
+  }
   return a; // ReferenceError: a is not defined
 }
 
@@ -48,18 +48,26 @@ fn2();
 * increment(); // 期待値->4
 */
 
-function incrementFactory() {
-  let num = 0;
+// function incrementFactory() {
+//   let num = 0;
 
+//   function increment() {
+//     num = num + 1;
+//     console.log(num);
+//   }
+
+//   return increment;
+// }
+
+// const increment = incrementFactory();
+
+{
+  let num = 0;
   function increment() {
     num = num + 1;
     console.log(num);
   }
-
-  return increment;
 }
-
-const increment = incrementFactory();
 
 increment();
 increment();
