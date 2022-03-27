@@ -1,3 +1,4 @@
+debugger;
 /**
  * 問題１：
  * 以下のコードではエラーが発生します。
@@ -7,15 +8,16 @@
  * ※if文は削除してはいけません。
  */
  function fn() {
-  let a;
-  if(true) {
-      a = 'fn called';
-  }
+  let a = 'fn called';
+  // if(true) {
+  //     let a = 'fn called';
+  // }
   return a; // ReferenceError: a is not defined
 }
 
 const result = fn();
 console.log(result);
+
 /**
 * 問題２：
 * fn2内の記述を変更して、各コンソールで
@@ -45,13 +47,20 @@ fn2();
 * increment(); // 期待値->3
 * increment(); // 期待値->4
 */
-{
+
+function incrementFactory() {
   let num = 0;
+
   function increment() {
-      num = num + 1;
-      console.log(num);
+    num = num + 1;
+    console.log(num);
   }
+
+  return increment;
 }
+
+const increment = incrementFactory();
+
 increment();
 increment();
 increment();
