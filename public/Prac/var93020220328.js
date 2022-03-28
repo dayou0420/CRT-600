@@ -14,9 +14,13 @@ debugger;
     prop1: 10
 }
 
+// function minus(obj, val) {
+//     let prop1 = obj.prop1;
+//     obj.prop1 = prop1 - val;
+// }
+
 function minus(obj, val) {
-    let prop1 = obj.prop1;
-    obj.prop1 = prop1 - val;
+    obj.prop1 = obj.prop1 - val;
 }
 
 minus(obj, 1);
@@ -32,9 +36,13 @@ console.log(obj.prop1);
  */
 
 
+// function double(obj) {
+//     let { prop1 } = obj;
+//     obj.prop1 = prop1 * 2;
+// }
+
 function double(obj) {
-    let { prop1 } = obj;
-    obj.prop1 = prop1 * 2;
+    obj.prop1 = obj.prop1 * 2;
 }
 
 double(obj);
@@ -53,13 +61,13 @@ obj.prop2 = {
 }
 
 function fn({ prop2 }) {
-    let prop = prop2;
-    prop.prop3 = 2;
+    // let prop = prop2;
+    // prop.prop3 = 2;
     prop = { prop3: 3 };
     return { prop2: prop };
 }
 obj = fn(obj);
-// console.log(obj.prop2.prop3);
+console.log(obj.prop2.prop3);
 
 /**
  * 問題４：

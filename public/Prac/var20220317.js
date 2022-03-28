@@ -286,17 +286,98 @@ Here
 Here
 */
 
-const a = {
-  property: 0
-}
+// const a = {
+//   property: 0
+// }
 
-const b = {
-  property: 0
-}
+// const b = {
+//   property: 0
+// }
 
-console.log(a.property === b.property);
-console.log(a == b);
+// console.log(a.property === b.property);
+// console.log(a == b);
 
-const c = a;
+// const c = a;
 
-console.log(a === c);
+// console.log(a === c);
+
+// let a = 0;
+
+// function fn1(arg1) {
+//   arg1 = 1;
+//   console.log(a, arg1);
+// }
+
+// fn1(a);
+
+// let arg1 = a;
+// arg1 = 1;
+// console.log(a, arg1);
+
+// let b = {
+//   property: 0
+// }
+
+// function fn2(arg2) {
+//   arg2.property = 1;
+//   console.log(b, arg2);
+// }
+
+// fn2(b);
+
+// function fn3(arg2) {
+//   arg2 = {};
+//   console.log(b, arg2);
+// }
+
+// fn3(b);
+
+/*
+分割代入
+オブジェクトから特定のプロパティーを
+抽出して宣言する
+*/
+
+// const a = {
+//   property: 'Hello'
+// }
+
+// let { property } = a;
+// property = 'Bye';
+
+// const a = {
+//   property: 0
+// }
+
+// // let { property: b } = a;
+// let { property } = a;
+
+// property = 1;
+
+// console.log(a, property);
+
+// // function fn(obj) {
+// //   let { property } = obj;
+// //   property = 1;
+// //   console.log(obj, property);
+// // }
+
+// function fn({ property }) {
+//   property = 1;
+//   console.log(a, property);
+// }
+
+// fn(a);
+
+// const c = {
+//   property1: {
+//     property2: 0
+//   }
+// }
+
+// let { property1 } = c;
+// console.log(property1);
+
+// property1.property2 = 1;
+
+// console.log(c, property1);

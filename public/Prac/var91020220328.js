@@ -24,6 +24,7 @@ console.log('!Boolean(0) === false', `!Boolean(0) => True` === false);
 console.log('-1 == false', -1 == false);
 
 /* Here
+not演算子はBooleanで活用される
 console.log('!10 === false', !10 === false);
 console.log('!10 === false', `!10 => False` === false);
 */
@@ -49,7 +50,7 @@ console.log('!10 === false', `!10 => False` === false);
  let b = undefined;
  let c = null;
 
- function fn(num = -1) {
+ function fn(num) {
      if(num === null || num === undefined) {
          num = -1;
      }
