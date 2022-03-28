@@ -37,13 +37,27 @@ console.log('!10 === false', `!10 => False` === false);
  * 以下の関数fnの初期化を適切に書き直してください。
  * ※aには0以上の整数値が渡ってくるものとします。
  */
- let a = 1;
+//  let a = 1;
 
- function fn(num) {
-     num = num || -1;
+//  function fn(num) {
+//      num = num || -1;
+//      console.log(num);
+//  }
+//  fn(a);
+
+ let a = 1;
+ let b = undefined;
+ let c = null;
+
+ function fn(num = -1) {
+     if(num === null || num === undefined) {
+         num = -1;
+     }
      console.log(num);
  }
  fn(a);
+ fn(b);
+ fn(c);
  
  
  /**
@@ -56,3 +70,15 @@ console.log('!10 === false', `!10 => False` === false);
   * greeting("Bob"); -> 出力結果："hello, Bob"
   *
   */
+
+// function greeting(name, something) {
+//   something = something || 'Hello'
+//   console.log(`${something}, ${name}`);
+// }
+
+function greeting(name, something = 'Hello') {
+  console.log(`${something}, ${name}`);
+}
+
+greeting('Bob', 'Hi');
+greeting('Bob');
