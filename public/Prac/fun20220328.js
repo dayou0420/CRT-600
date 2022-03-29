@@ -75,11 +75,98 @@ debugger;
 参照を保持するキーワード
 */
 
+// const person = {
+//   name: 'Tom',
+//   hello: function() {
+//     console.log(`Hello ${this.name}`)
+//   }
+// }
+
+// person.hello();
+
+// function a() {
+//   console.log('Hello');
+// }
+
+// a.prop = 0;
+// a.method = function() {
+//   console.log('Method');
+// }
+
+// a();
+// a.method();
+// console.log(a.prop);
+
+/*
+関数は実行可能なオブジェクトである
+*/
+
+/*
+コールバック関数
+他の関数に`引数として`
+渡される関数
+*/
+
+// function hello(name) {
+//   console.log(`Hello ${name}`);
+// }
+
+// function bye() {
+//   console.log('Bye');
+// }
+
+// function fn(cb) {
+//   cb('Tim');
+// }
+
+// fn(hello);
+// fn(bye);
+// fn(function(name) {
+//   console.log(`Hello ${name}`);
+// })
+
+// setTimeout(hello, 2000);
+
+/*
+`this`
+呼び出し元のオブジェクトへの
+参照を保持するキーワード
+*/
+
+// const person = {
+//   name: 'Tom',
+//   hello: function() {
+//     console.log(`Hello ${this.name}`);
+//   }
+// }
+
+// person.hello();
+
+// window.name = 'John';
+
+// const person = {
+//   name: 'Tom',
+//   hello: function() {
+//     console.log(`Hello ${this.name}`);
+//     a();
+//   }
+// }
+
+// const ref = person.hello;
+// ref();
+
+// person.hello();
+
+// function a() {
+//   console.log(`Hello ${this.name}`);
+// }
+
+window.name = 'John';
+
 const person = {
   name: 'Tom',
   hello: function() {
-    console.log(`Hello ${this.name}`)
+    console.log(`Hello ${this.name}`);
+    a();
   }
 }
-
-person.hello();
