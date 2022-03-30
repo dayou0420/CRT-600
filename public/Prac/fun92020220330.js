@@ -8,6 +8,9 @@ const person = {
   hello: function (greeting) {
       console.log(greeting + ' ' + this.name);
       return greeting + ' ' + this.name;
+  },
+  hello1s: function() {
+      console.log(`hello ${this.name}`);
   }
   /**
    * 問題４：
@@ -29,7 +32,7 @@ const person = {
   
 }
 
-person.printHello();
+person.hello1s();
 
 /**
 * 問題１：
