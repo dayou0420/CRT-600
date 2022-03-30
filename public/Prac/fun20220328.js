@@ -1,4 +1,4 @@
-debugger;
+debugger
 
 /*
 同じ関数名だったら
@@ -161,12 +161,83 @@ debugger;
 //   console.log(`Hello ${this.name}`);
 // }
 
-window.name = 'John';
+// window.name = 'John';
 
-const person = {
-  name: 'Tom',
-  hello: function() {
-    console.log(`Hello ${this.name}`);
-    a();
-  }
-}
+// const person = {
+//   name: 'Tom',
+//   hello: function() {
+//     console.log(`Hello ${this.name}`);
+//   }
+// }
+
+// person.hello();
+
+// function fn(ref) {
+//   ref();
+// }
+
+// fn(person.hello);
+
+/*
+オブジェクトのメソッドとして
+実行される場合
+`'this' => 呼び出し元オブジェクト`
+関数として
+実行される場合
+`'this' => グローバルオブジェクト`
+*/
+
+// function unfollow() {
+//   console.log('Unfollowed');
+// }
+
+// function cancel() {
+//   console.log('Canceled');
+// }
+
+// const cancel = function() {
+//   console.log('Canceled');
+// }
+
+// function confirmed(fn) {
+//   if(window.confirm("OK")) {
+//     fn();
+//   }
+// }
+
+// confirmed(function() {
+//   console.log('Canceled');
+// })
+
+// window.name = 'John';
+
+// const person = {
+//   name: 'Tom',
+//   hello: function() {
+//     console.log(`Hello ${this.name}`);
+//   }
+// }
+
+// person.hello();
+
+// const helloTom = person.hello.bind(person);
+
+// function fn(ref) {
+//   ref();
+// }
+
+// fn(helloTom);
+
+// function a() {
+//   console.log(`Hello ${this.name}`);
+// }
+
+// const b = a.bind({ name: 'Tim' });
+
+// b();
+
+/*
+bindによって
+`this`や`引数`を固定した
+新しい関数を作成
+*/

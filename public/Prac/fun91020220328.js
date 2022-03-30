@@ -1,18 +1,16 @@
-debugger;
+// function hello(name) {
+//   console.log(`Hello ${name}`);
+// }
 
-function hello(name) {
-  console.log(`Hello ${name}`);
-}
+// function fn(cb) {
+//   cb('Tim');
+// }
 
-function fn(cb) {
-  cb('Tim');
-}
+// fn(hello);
 
-fn(hello);
-
-fn(function(name) {
-  console.log(`Hello ${name}`);
-})
+// fn(function(name) {
+//   console.log(`Hello ${name}`);
+// })
 
 /**
  * 問題１：
@@ -22,11 +20,11 @@ fn(function(name) {
  * 
  * ※必ずperson.helloメソッドは解答内で使用してください。
  */
- const person = {
-  hello: function () {
-      return 'hello Tom';
-  }
-}
+//  const person = {
+//   hello: function () {
+//       return 'hello Tom';
+//   }
+// }
 
 // setTimeout(fn(function({ hello }) {
 //   console.log(hello);
@@ -48,6 +46,19 @@ fn(function(name) {
 * 示する関数です。
 */
 
+// const person = {
+//   name: 'Tom',
+//   hello: function() {
+//     console.log(`Hello ${this.name}`);
+//   }
+// }
+
+// // person.hello();
+
+// setTimeout(function() {
+//   const hello = person.hello();
+//   alert(hello);
+// }, 1000);
 
 /**
 * 問題３：
@@ -69,7 +80,7 @@ function after1s(callack) {
 }
 
 // この時点で実行します。
-// after1s(obj.greeting);
+after1s(obj.greeting);
 
 // この後でgreetingを書き換えます。
 obj.greeting = function() {
@@ -86,16 +97,16 @@ obj.greeting = function() {
 * 
 * ※コールバック関数を用いて実装してください。
 */
-function calcFactory(val) {
+function calcFactory(val, callack) {
   return {
       plus: function(target) {
           const newVal = val + target;
-          console.log(`${val} + ${target} = ${newVal}`);
+          callack(`${val} + ${target} = ${newVal}`);
           val = newVal;
       },
       minus: function(target) {
           const newVal = val - target;
-          console.log(`${val} - ${target} = ${newVal}`);
+          callack(`${val} - ${target} = ${newVal}`);
           val = newVal;
       },
       multiply: function(target) {
@@ -105,13 +116,13 @@ function calcFactory(val) {
       },
       divide: function(target) {
           const newVal = val / target;
-          console.log(`${val} / ${target} = ${newVal}`);
+          callack(`${val} / ${target} = ${newVal}`);
           val = newVal;
       }
   };
 }
 
-const calc = calcFactory(10);
+const calc = calcFactory(10, alert);
 calc.plus(5); 
 calc.minus(3); 
 calc.multiply(3);
