@@ -7,16 +7,39 @@ const person = {
       console.log(greeting + ' ' + this.name);
       return greeting + ' ' + this.name;
   },
-  hello1s: function() {
-    //   // console.log(`hello ${this.name}`);
-    //   setTimeout(function() {
-    //       // const hello = person.hello();
-    //       // const helloTom = person.hello.bind(person);
-    //       //const hello = person.hello.bind(null, 'Hello');
-    //       const hello = person.hello.bind(person, 'hello');
-    //       hello();
-    //   }, 1000)
-    setTimeout(this.hello.bind(this, 'hello'), 1000)
+  // hello1s: function() {
+  //   //   // console.log(`hello ${this.name}`);
+  //   //   setTimeout(function() {
+  //   //       // const hello = person.hello();
+  //   //       // const helloTom = person.hello.bind(person);
+  //   //       //const hello = person.hello.bind(null, 'Hello');
+  //   //       const hello = person.hello.bind(person, 'hello');
+  //   //       hello();
+  //   //   }, 1000)
+  //   //　setTimeout(this.hello.bind(this, 'hello'), 1000);
+  // }
+  // hello1s: () => {
+  //   setTimeout(person.hello.bind(person, 'hello'), 1000);
+  // },
+  // hello1s: function() {
+  //   setTimeout(this.hello.bind(this, 'hello'), 1000);
+  // }
+  hello1s() {
+    // const helloTom = this.hello.bind(this, 'hello');
+    // setTimeout(helloTom, 1000);
+    // setTimeout(this.hello.bind(this, 'hello'), 1000);
+    // setTimeout(() => {
+    //   const helloTom = person.hello.bind(person, 'hello');
+    //   helloTom();
+    // }, 1000);
+    // setTimeout(this.hello.bind(this, 'hello'));
+    // setTimeout(() => {
+    //   this.hello('hello');
+    // }, 1000);
+    // const _this = this;
+    // setTimeout(function() {
+    //   _this.hello('hello')
+    // }, 1000);
   }
   /**
    * 問題４：
