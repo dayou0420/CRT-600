@@ -1,5 +1,3 @@
-debugger;
-
 const person = {
   name: 'Tom',
   bye: () => {
@@ -10,7 +8,15 @@ const person = {
       return greeting + ' ' + this.name;
   },
   hello1s: function() {
-      console.log(`hello ${this.name}`);
+    //   // console.log(`hello ${this.name}`);
+    //   setTimeout(function() {
+    //       // const hello = person.hello();
+    //       // const helloTom = person.hello.bind(person);
+    //       //const hello = person.hello.bind(null, 'Hello');
+    //       const hello = person.hello.bind(person, 'hello');
+    //       hello();
+    //   }, 1000)
+    setTimeout(this.hello.bind(this, 'hello'), 1000)
   }
   /**
    * 問題４：
@@ -40,7 +46,7 @@ person.hello1s();
 * と出力されるように、以下のコード
 * の記載を変更しましょう。
 */
-setTimeout(person.hello, 1000);
+// setTimeout(person.hello, 1000);
 
 /**
 * 問題２：
@@ -48,7 +54,7 @@ setTimeout(person.hello, 1000);
 * と出力されるように、
 * 以下のコードを変更してください。
 */
-alert(person.hello);
+// alert(person.hello);
 
 /**
 * 問題３：
@@ -57,4 +63,4 @@ alert(person.hello);
 * "Bye"しか表示されませんでした。
 * "Bye Tom"とするためにはどうすればよいでしょうか？
 */
-setTimeout(person.bye.bind(person), 1000);
+// setTimeout(person.bye.bind(person), 1000);
