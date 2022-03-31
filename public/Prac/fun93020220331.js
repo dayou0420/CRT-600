@@ -9,7 +9,7 @@
  * 
  */
 function hello(name) {
-  console.log(`hello ${name}`);
+  return () => console.log(`hello ${name}`);
 }
 
 /**
