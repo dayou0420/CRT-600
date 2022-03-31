@@ -42,3 +42,32 @@ debugger
 // }
 
 // b();
+
+// function fn(a, b) {
+//   console.log(a, b);
+// }
+
+// const fn = a => a;
+
+// let c = fn(1, undefined);
+
+// console.log(c);
+
+// const a = (i) => console.log(i);
+
+// a.prop = 0;
+// a.method = () => console.log('Method');
+
+// a('hello');
+// a.method();
+
+// console.log(a.prop);
+
+const hello = (name) => console.log(`hello ${name}`);
+const bye = (name) => console.log(`bye ${name}`);
+
+const fn = (cb) => cb('Tom');
+
+fn(hello);
+fn(bye);
+fn(name => console.log(`hello ${name}`));
