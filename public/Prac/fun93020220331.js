@@ -8,9 +8,8 @@
  * nameの引数を取るものとします。
  * 
  */
-function hello(name) {
-  return () => console.log(`hello ${name}`);
-}
+
+const hello = name => () => console.log(`hello ${name}`);
 
 /**
  * 実行文は以下の通りです。
