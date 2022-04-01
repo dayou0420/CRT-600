@@ -45,44 +45,71 @@ debugger;
  * login failed <- loginで失敗した場合
  */
 
+// 一般ユーザーがログインした場合 
 class User {
-  constructor(name) {
+  constructor(name, roll) {
     this.name = name;
+    this.roll = roll;
   }
 
   login() {
+    // ログイン成功した場合
     console.log(`User: ${this.name}`);
     return this;
   }
 
   checkRoll() {
-    console.log(`you have normal roll ${this.name}`);
-    return this;
+    /*
+     * もしプロパティrollがnormalの場合
+     * `you have normal roll`を出力
+     * 
+     * もしロパティrollがnormalではない場合
+     * `login failed`を出力
+     */
+
+    // ログイン成功した場合
+    if(this.roll === 'normal') {
+      console.log(`you have ${this.roll} roll`);
+      return this;
+    }
   }
 
   redirect() {
-    console.log(`redirect : /admin ${this.name}`);
+    // ログイン成功した場合
+    console.log('redirect : /');
     return this;
   }
 }
 
-const tom = new User('Tom');
-tom.login()
-  .checkRoll()
-  .redirect();
+class AdminUser extends User {
+  constructor(name, roll) {
+    super(name, roll);
+  }
 
-function loginController(user) {
-  console.log(`hello ${user}`);
+  checkRoll() {
+    if(this.roll === 'admin') {
+      console.log(`you have ${this.roll} roll`);
+      return this;
+    }
+  }
+
+  redirect() {
+    console.log('redirect : /admin');
+    return this;
+  }
 }
 
-loginController(new User('Tom'));
+function loginController(user) {
+  if(user.login()
+    && user.checkRoll()
+    && user.redirect()) {
+      console.log('login success')
+    } else {
+      console.log('login failed');
+    }
+}
 
-// function loginController(user) {
-//   if (user.login()
-//     && user.checkRoll()
-//     && user.redirect()) {
-//     console.log('login success');
-//   } else {
-//     console.log('login failed');
-//   }
-// }
+const user = new User('Tom', 'normal');
+// const user = new AdminUser('Tom', 'admin');
+
+loginController(user);
