@@ -38,31 +38,72 @@ debugger;
  * プロトタイプチェーン
  */
 
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+//   // this.hello = function() {
+//   //   console.log(`OwnProperty: hello ${this.name}`);
+//   // }
+// }
+
+// // Person.prototype.hello = function() {
+// //   console.log(`Person: hello ${this.name}`);
+// // }
+
+// Object.prototype.hello = function() {
+//   console.log(`Object: hello ${this.name}`);
+// }
+
+// const bob = new Person('Bob', 18);
+
+// bob.hello();
+
+// const result = bob.hasOwnProperty('name');
+
+// console.log(result);
+
+// // console.log('name' in bob);
+
+// console.log('hello' in bob);
+
+/*
+ * プロトタイプ継承`
+ * 別のコンストラクター関数の`プロトタイプを受け継い`で、
+ * 機能を流用できるようにすること
+ * 
+ * 継承
+ * 別のコンストラクター関数を受け継ぐこと
+ * 
+ */
+
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  // this.hello = function() {
-  //   console.log(`OwnProperty: hello ${this.name}`);
-  // }
 }
 
-// Person.prototype.hello = function() {
-//   console.log(`Person: hello ${this.name}`);
-// }
-
-Object.prototype.hello = function() {
-  console.log(`Object: hello ${this.name}`);
+Person.prototype.hello = function() {
+  console.log(`hello ${this.name}`);
 }
 
-const bob = new Person('Bob', 18);
+function Japanese(name, age, gender) {
+  Person.call(this, name, age);
+  this.gender = gender;
+}
 
-bob.hello();
+Japanese.prototype = Object.create(Person.prototype);
 
-const result = bob.hasOwnProperty('name');
+Japanese.prototype.hello = function() {
+  console.log(`こんにちは ${this.name}`);
+}
 
-console.log(result);
+Japanese.prototype.bye = function() {
+  console.log(`さようなら ${this.name}`);
+}
 
-// console.log('name' in bob);
+const taro = new Japanese('太郎', 23, 'Male');
 
-console.log('hello' in bob);
+console.log(taro);
+
+taro.hello();
+taro.bye();
 
