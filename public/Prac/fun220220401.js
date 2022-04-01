@@ -107,4 +107,104 @@ debugger;
 // taro.hello();
 // taro.bye();
 
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
 
+//   hello() {
+//     console.log(`hello ${this.name}`);
+//   }
+// }
+
+// const bob = new Person('Bob', 23);
+
+// console.log(bob);
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+
+// Person.prototype.hello = function() {
+//   console.log(`hello ${this.name}`);
+// }
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+
+// Person.prototype.hello = function() {
+//   console.log(`hello ${this.name}`);
+// }
+
+// function Japanese(name, age, gender) {
+//   Person.call(this, name, age);
+//   this.gender = gender;
+// }
+
+// Japanese.prototype = Object.create(Person.prototype);
+
+// Japanese.prototype.hello = function() {
+//   console.log(`こんにちは ${this.name}`);
+// }
+
+// Japanese.prototype.bye = function() {
+//   console.log(`さようなら ${this.name}`);
+// }
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  hello() {
+    console.log(`hello ${this.name}`);
+  }
+}
+
+class Japanese extends Person {
+  constructor(name, age, gender) {
+    super(name, age);
+    this.gender = gender;
+  }
+
+  hello() {
+    super.hello();
+    console.log(`こんにちは ${this.name}`);
+  }
+
+  bye() {
+    console.log(`さようなら ${this.name}`);
+  }
+}
+
+const taro = new Japanese('太郎', 23, 'Male');
+
+taro.hello();
+
+taro.bye();
+
+const american = {
+  name: 'Bob',
+  hello() {
+    console.log(`hello ${this.name}`);
+  }
+}
+
+const bob = {
+  name: 'Bob',
+  hello() {
+    super.hello();
+  }
+  // hello() {
+  //   console.log(`hello ${this.name}`);
+  // }
+}
+
+Object.setPrototypeOf(bob, american);
+
+bob.hello();
