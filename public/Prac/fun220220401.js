@@ -76,34 +76,35 @@ debugger;
  * 
  */
 
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-}
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
 
-Person.prototype.hello = function() {
-  console.log(`hello ${this.name}`);
-}
+// Person.prototype.hello = function() {
+//   console.log(`hello ${this.name}`);
+// }
 
-function Japanese(name, age, gender) {
-  Person.call(this, name, age);
-  this.gender = gender;
-}
+// function Japanese(name, age, gender) {
+//   Person.call(this, name, age);
+//   this.gender = gender;
+// }
 
-Japanese.prototype = Object.create(Person.prototype);
+// Japanese.prototype = Object.create(Person.prototype);
 
-Japanese.prototype.hello = function() {
-  console.log(`こんにちは ${this.name}`);
-}
+// Japanese.prototype.hello = function() {
+//   console.log(`こんにちは ${this.name}`);
+// }
 
-Japanese.prototype.bye = function() {
-  console.log(`さようなら ${this.name}`);
-}
+// Japanese.prototype.bye = function() {
+//   console.log(`さようなら ${this.name}`);
+// }
 
-const taro = new Japanese('太郎', 23, 'Male');
+// const taro = new Japanese('太郎', 23, 'Male');
 
-console.log(taro);
+// console.log(taro);
 
-taro.hello();
-taro.bye();
+// taro.hello();
+// taro.bye();
+
 
