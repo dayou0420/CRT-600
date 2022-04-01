@@ -266,49 +266,84 @@ debugger;
 
 // console.log(descriptor);
 
-function Person1(name, age) {
-  this._name = name;
-  this._age = age;
+// function Person1(name, age) {
+//   this._name = name;
+//   this._age = age;
+// }
+
+// Object.defineProperty(Person1.prototype, 'name', {
+//   get: function() {
+//     console.log('hello');
+//     return this._name;
+//   },
+//   set: function(val) {
+//     this._name = val;
+//   }
+// })
+
+// const p1 = new Person1('Bob', 23);
+
+// // p1.name = 'Tom';
+
+// console.log(p1.name);
+
+// class Person2 {
+
+//   constructor() {
+//     this._name = name;
+//     this._age = age;
+//   }
+
+//   get name() {
+//     console.log('hello');
+//     return this._name;
+//   }
+
+//   set name(val) {
+//     this._name = val;
+//   }
+
+//   static hello() {
+//     console.log('hello');
+//   }
+
+// }
+
+// const p2 = new Person2('Bob', 23);
+
+// Person2.hello();
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  hello(person) {
+    console.log(`${this.name} says hello ${person.name}`);
+    return this;
+  }
+
+  introduce() {
+    console.log(`Hi, I'm ${this.name}, ${this.age} years old.`);
+    return this;
+  }
+
+  shakeHands(person) {
+    console.log(`${this.name} shake hands with ${person.name}.`);
+    return this;
+  }
+
+  bye(person) {
+    console.log(`Goodbye ${person.name}.`);
+    return this;
+  }
 }
 
-Object.defineProperty(Person1.prototype, 'name', {
-  get: function() {
-    console.log('hello');
-    return this._name;
-  },
-  set: function(val) {
-    this._name = val;
-  }
-})
+const bob = new Person('Bob', 23);
+const tim = new Person('Tim', 33);
 
-const p1 = new Person1('Bob', 23);
-
-// p1.name = 'Tom';
-
-console.log(p1.name);
-
-class Person2 {
-
-  constructor() {
-    this._name = name;
-    this._age = age;
-  }
-
-  get name() {
-    console.log('hello');
-    return this._name;
-  }
-
-  set name(val) {
-    this._name = val;
-  }
-
-  static hello() {
-    console.log('hello');
-  }
-
-}
-
-const p2 = new Person2('Bob', 23);
-
-Person2.hello();
+bob.hello(tim)
+  .introduce()
+  .shakeHands(tim)
+  .bye(tim);

@@ -45,12 +45,44 @@ debugger;
  * login failed <- loginで失敗した場合
  */
 
-function loginController(user) {
-  if (user.login()
-    && user.checkRoll()
-    && user.redirect()) {
-    console.log('login success');
-  } else {
-    console.log('login failed');
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+
+  login() {
+    console.log(`User: ${this.name}`);
+    return this;
+  }
+
+  checkRoll() {
+    console.log(`you have normal roll ${this.name}`);
+    return this;
+  }
+
+  redirect() {
+    console.log(`redirect : /admin ${this.name}`);
+    return this;
   }
 }
+
+const tom = new User('Tom');
+tom.login()
+  .checkRoll()
+  .redirect();
+
+function loginController(user) {
+  console.log(`hello ${user}`);
+}
+
+loginController(new User('Tom'));
+
+// function loginController(user) {
+//   if (user.login()
+//     && user.checkRoll()
+//     && user.redirect()) {
+//     console.log('login success');
+//   } else {
+//     console.log('login failed');
+//   }
+// }
