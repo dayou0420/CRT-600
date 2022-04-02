@@ -21,7 +21,12 @@ class Person {
   }
 }
 
-const tom = new Person('Tom', 18);
+const bob = new Person('Bob', 18);
+setTimeout(bob.hello.bind(bob), 1000);
+setTimeout(function() {
+  bob.hello();
+}, 1000);
+
 // tom.hello();
 // setTimeout(tom.hello(), 1000);
 // setTimeout(console.log(tom.hello), 1000);
