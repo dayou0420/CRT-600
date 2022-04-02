@@ -49,13 +49,14 @@ debugger;
 class User {
   constructor(name, roll) {
     this.name = name;
+    this.redirectTo = '/';
     this.roll = roll;
   }
 
   login() {
     // ログイン成功した場合
     console.log(`User: ${this.name}`);
-    return this;
+    return true;
   }
 
   checkRoll() {
@@ -70,32 +71,33 @@ class User {
     // ログイン成功した場合
     if(this.roll === 'normal') {
       console.log(`you have ${this.roll} roll`);
-      return this;
+      return true;
     }
   }
 
   redirect() {
     // ログイン成功した場合
-    console.log('redirect : /');
-    return this;
+    console.log(`redirect : ${this.redirectTo}`);
+    return true;
   }
 }
 
 class AdminUser extends User {
   constructor(name, roll) {
     super(name, roll);
+    this.adminRedirectTo = '/admin';
   }
 
   checkRoll() {
     if(this.roll === 'admin') {
       console.log(`you have ${this.roll} roll`);
-      return this;
+      return true;
     }
   }
 
   redirect() {
-    console.log('redirect : /admin');
-    return this;
+    console.log(`redirect : ${this.adminRedirectTo}`);
+    return true;
   }
 }
 
