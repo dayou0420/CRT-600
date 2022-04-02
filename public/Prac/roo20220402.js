@@ -131,4 +131,66 @@
 //   console.log(k);
 // }
 
+// function genIterator(max = 10) {
+//   let i = 0;
+
+//   return {
+//     next: function() {
+//       if(i >= max) {
+//         return {
+//           done: true
+//         }
+//       } else {
+//         return {
+//           done: false,
+//           value: i++
+//         }
+//       }
+//     }
+//   }
+// }
+
+// const it = genIterator(100);
+
+// let a = it.next();
+// while(!a.done) {
+//   // console.log(a.value);
+//   a = it.next();
+// }
+
+// const obj = {
+//   [Symbol.iterator]: genIterator.bind(null, 10)
+// }
+
+// for(const i of obj) {
+//   console.log(i);
+// }
+
+const items = {
+  prop1: 'value1',
+  prop2: 'value3',
+  prop3: 'value3'
+}
+
+Object.prototype[Symbol.iterator] = function() {
+  const keys = Object.keys(this);
+  let i = 0;
+  let _this = this;
+
+  return {
+    next() {
+      let key = keys[i++];
+      return {
+        value: [key, _this[key]],
+        done: i > keys.length
+      }
+    }
+  }
+}
+
+// const items = Object.entries(obj);
+for(let [k, v] of items) {
+  console.log(k, v);
+}
+
 debugger;
