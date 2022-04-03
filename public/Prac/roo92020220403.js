@@ -19,22 +19,16 @@
  * の値が順番にコンソールに表示されます。
  */
 
-function* genStep(min, max, step) {
-  let i = min - step;
-
-  while(i < max) {
-    i = i + step;
+function* genStep({min = 0, max = 20, step = 1} = {}) {
+  for(let i = min; i <= max; i += step) {
     yield i;
   }
-  return;
 }
 
-const it = genStep(4, 10, 2);
+const it = genStep({min: 4, max: 10, step: 2});
 
-let a = it.next();
-while(!a.done) {
-  console.log(a.value);
-  a = it.next();
+for(let value of it) {
+  console.log(value);
 }
 
 // function genStep(min, max, step) {
